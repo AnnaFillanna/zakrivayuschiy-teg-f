@@ -19,6 +19,7 @@ iconButtonArray.forEach((iconButton, index) => {
 
 likeButtonArray.forEach((button, index) => {
   button.onclick = () => toggleIsLiked(likeHeartArray[index], button);
+ 
 });
 
 function toggleIsLiked(heart, button) {
