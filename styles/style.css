@@ -269,7 +269,6 @@
 
 /* модальное окно */
 .dialog {
-  display: block;
   padding: 0;
   max-width: 100%;
 }
