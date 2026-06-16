@@ -10,7 +10,7 @@
   margin-inline: auto;
 }
 
-/* шапка — градиентный фон, flex чтобы центрировать hero */
+/* шапка */
 .header {
   background-image: var(--bg-gradient);
   background-size: cover;
@@ -447,8 +447,8 @@
 
 /* медиа запросы для мобилки */
 @media (width <= 375px) {
-  .page {
-    min-inline-size: 320px;
+  .header {
+    padding-block: 100px;
   }
 
   .hero {
@@ -476,10 +476,6 @@
     margin-inline: auto;
   }
 
-  .header {
-    padding-block: 100px;
-  }
-
   .content {
     gap: 48px;
     margin-block-start: 0;
@@ -496,8 +492,6 @@
 
   .card__watermark {
     inset-block-start: 25px;
-    inset-inline-end: 25px;
-    font-size: 14px;
   }
 
   .card__image {
@@ -506,7 +500,6 @@
 
   .card__content {
     padding: 25px;
-    gap: 25px;
     font-size: 18px;
     line-height: 21px;
 
@@ -541,15 +534,11 @@
 
   .dialog__content {
     padding-inline: 40px;
-    gap: 30px;
+
     max-width: auto;
     height: 191px;
     font-size: 14px;
     line-height: 1.5;
-  }
-
-  .dialog__header {
-    gap: 20px;
   }
 
   .dialog__icon {
