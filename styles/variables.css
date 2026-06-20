@@ -12,12 +12,11 @@
   --text-color: #000;
   --accent-color: #000;
 
-  --button-text: #fff; /* белый текст (инвертируется в чёрный) */
-  --button-bg: #fff; /* белый фон кнопки */
-  --button-hover: #000; /* чёрный псевдоэлемент */
+  --button-text: #fff;
+  --button-hover: #000; 
   --contour-color: #000;
   --content-width: clamp(320px, 100vw, 700px);
-
+--stroke-color: #fff;
   --bg-gradient:
     repeating-linear-gradient(
       to right,
@@ -33,5 +32,6 @@
       transparent 2px,
       transparent 4px
     ),
-    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a); 
+     
 }

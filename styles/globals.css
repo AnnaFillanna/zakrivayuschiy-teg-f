@@ -10,6 +10,11 @@
 
 body {
   margin: 0;
+  background-color: #fff;
+  background-image: var(--bg-gradient);
+  background-size: 100% 100vh;
+  background-position: top;
+  background-repeat: no-repeat;
  
 }
 

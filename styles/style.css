@@ -1,72 +1,64 @@
-/* стили для страницы */
 .page {
   font-family: var(--main-font);
-  background-color: #fff;
   font-variation-settings: "wght" var(--card-text-weight);
   min-inline-size: 320px;
-  min-block-size: 100dvb;
   color: var(--accent-color);
-  inline-size: 100%;
+  background-color: var(--bg-color);
+  max-width: 700px;
   margin-inline: auto;
+  min-height: 100vh;
+  mix-blend-mode: normal;
 }
 
-/* шапка */
-.header {
-  background-image: var(--bg-gradient);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  padding-block-start: 100px;
-  padding-block-end: 500px;
-  border: none;
-  inline-size: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-/* hero */
 .hero {
-  block-size: 368px;
   inline-size: var(--content-width);
   margin-inline: auto;
-  /* margin-inline: 20px; */
-  background-color: #fff;
+  background-color: var(--bg-color);
   border: 2px solid #000;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-block: 130px;
+  margin-block-start: 100px;
 }
 
-/* обертка для логотипов */
 .hero__logo-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
 }
 
-/*  HTML */
-.hero__logo-html img {
+.hero__logo-html {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__logo-html h1 {
+  color: #000;
+  font-family: var(--accent-font);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: clamp(4rem, 1.5rem + 2.2vw, 4.0625rem);
+  line-height: 1;
+  margin: 0;
+}
+.hero__logo-close-tag h2 {
+  font-family: var(--accent-font);
   display: block;
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-size: clamp(1.2rem, 0.9rem + 0.6vw, 1.4375rem);
+  text-transform: uppercase;
+  line-height: 1;
 }
-
-/* закрывающий тег */
-.hero__logo-close-tag img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-}
-
-/* основной контент */
 .content {
   display: flex;
   flex-direction: column;
@@ -74,20 +66,24 @@
   gap: 52px;
   inline-size: min(100%, 700px);
   margin-inline: auto;
-  font-family: var(--content-width);
-  background-color: #fff;
-  margin-block-start: -400px;
+  font-family: var(--main-font);
+  /* background-color: white;  */
+  margin-block-start: 100px;
   position: relative;
   z-index: 1;
   border: none;
 }
-
-/* карточка */
+.page__content {
+  background-color: transparent;
+  min-height: 100dvb;
+}
 .card {
   border: 2px solid var(--accent-color);
   inline-size: 100%;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-color);
+  mix-blend-mode: normal;
 }
 
 .card__title {
@@ -152,25 +148,18 @@
   font-size: 18px;
   line-height: 21px;
 }
-
-/* общие стили для кнопок с эффектом заливки */
-.card__like-button,
-.save-button,
-.dialog__button {
+.button {
   position: relative;
   overflow: hidden;
   cursor: pointer;
   border: 2px solid var(--accent-color);
-  background: transparent;
+  background: white;
   font-family: var(--accent-font);
   font-size: 14px;
   transition: box-shadow 0.3s ease;
 }
 
-/* псевдоэлемент для заливки */
-.card__like-button::before,
-.save-button::before,
-.dialog__button::before {
+.button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -184,37 +173,25 @@
   z-index: 1;
 }
 
-.card__like-button:hover::before,
-.save-button:hover::before,
-.dialog__button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
-/* текст на кнопках */
 .button__text,
 .dialog__button-text {
   position: relative;
   z-index: 2;
-
-  color: var(--accent-color);
-  transition: color 0.5s ease-in-out;
+  color: white;
+  mix-blend-mode: difference;
+  display: inline-block;
 }
 
-/* при наведении текст белый */
-.card__like-button:hover .button__text,
-.save-button:hover .button__text,
-.dialog__button:hover .dialog__button-text {
-  color: var(--button-text);
-}
-
-.card__like-button:focus,
-.save-button:focus,
-.dialog__button:focus {
+.button:focus {
   outline: none;
   box-shadow: 2px 2px 0px var(--accent-color);
   transition: box-shadow 0.3s ease;
 }
-/* кнопка лайк */
+
 .card__buttons {
   display: flex;
   justify-content: flex-end;
@@ -253,21 +230,20 @@
   z-index: 1;
 }
 
-/* иконка дискеты */
+/* floppy */
 .button__icon {
   width: 21px;
   height: 21px;
   position: relative;
   z-index: 2;
-  mix-blend-mode: difference;
+}
+
+.button:hover .button__icon {
+  filter: invert(1);
   transition: filter 0.5s ease-in-out;
 }
 
-.save-button:hover .button__icon {
-  filter: invert(1);
-}
-
-/* модальное окно */
+/* модал*/
 .dialog {
   padding: 0;
   max-width: 100%;
@@ -279,23 +255,24 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 0;
   max-width: 353px;
   width: 100%;
 }
 
 .dialog__header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 15px;
+  justify-content: start;
 }
 
 .dialog__icon {
-  width: 39px;
-  height: 39px;
+  margin-top: 10px;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
+  padding: 0;
 }
 
 .dialog__title {
@@ -304,17 +281,13 @@
   line-height: 1.5;
   text-transform: uppercase;
   color: var(--accent-color);
+  margin: 0 5px 20px 0;
 }
 
 .dialog__button {
   padding: 10px 35px;
   text-transform: uppercase;
   width: 100%;
-}
-
-.dialog__button-text {
-  font-family: var(--accent-font);
-  font-size: 14px;
 }
 
 .dialog__form {
@@ -347,6 +320,10 @@
   align-items: center;
   justify-content: center;
   overflow: visible;
+}
+.card__icon-button:focus-visible {
+  outline: none;
+  border-color: var(--accent-color);
 }
 
 .like-icon {
@@ -439,43 +416,30 @@
   transition: fill 0.3s linear 0.06s;
 }
 
-/* фокус */
-.card__icon-button:focus-visible {
-  outline: none;
-}
-
-/* медиа запросы для мобилки */
 @media (width <= 375px) {
   .header {
     padding-block: 100px;
   }
 
   .hero {
-    block-size: 327px;
-    inline-size: 100%;
+    padding-inline: 16px;
+    padding-block: 122px;
     margin-inline: 0;
   }
 
   .hero__logo-wrapper {
-    gap: 0px;
     transform: none;
   }
 
-  .hero__logo-html img {
-    width: 375px;
-    height: 45px;
-    margin-block: -8px 25px;
-    transform: scaleX(0.97);
+  .hero__logo-html h1 {
+    font-size: clamp(3.0625rem, 1.5rem + 2.2vw, 4.0625rem);
   }
 
-  .hero__logo-close-tag img {
-    width: 210px;
-    margin-top: 0;
-    display: block;
-    margin-inline: auto;
+  .hero__logo-close-tag h2 {
+    font-size: clamp(0.875rem, 0.35rem + 1.5vw, 2.1875rem);
   }
-
   .content {
+    padding-block: 100px;
     gap: 48px;
     margin-block-start: 0;
   }
@@ -485,7 +449,6 @@
   }
 
   .card__title {
-    font-size: 18px;
     padding-block: 5px;
   }
 
@@ -499,9 +462,6 @@
 
   .card__content {
     padding: 25px;
-    font-size: 18px;
-    line-height: 21px;
-
     font-weight: 410;
   }
 
@@ -529,8 +489,13 @@
   .button__icon {
     width: 25px;
     height: 25px;
+    transform: scale(1.4);
   }
-
+  .dialog {
+    padding-inline: 17px;
+    background-color: transparent;
+    border: none;
+  }
   .dialog__content {
     padding-inline: 40px;
 
@@ -544,13 +509,19 @@
     width: 40px;
     height: 40px;
   }
-
+  .dialog__title {
+    margin: 0;
+  }
   .dialog__button {
     padding: 9px 17px;
+    margin-top: 30px;
   }
 
   .dialog__button-text {
     font-size: 14px;
+  }
+  .dialog__header {
+    column-gap: 20px;
   }
 }
 /* фильтры для картинок */
