@@ -3,9 +3,9 @@
   font-variation-settings: "wght" var(--card-text-weight);
   min-inline-size: 320px;
   color: var(--accent-color);
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
   max-width: 700px;
-  margin-inline: auto;
+  margin-inline: 0;
   min-height: 100vh;
   mix-blend-mode: normal;
 }
@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+
   padding-block: 130px;
   margin-block-start: 100px;
 }
@@ -45,17 +45,17 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: clamp(4rem, 1.5rem + 2.2vw, 4.0625rem);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: 1;
   margin: 0;
 }
-.hero__logo-close-tag h2 {
+.hero__logo-close-tag {
   font-family: var(--accent-font);
   display: block;
   width: auto;
   height: auto;
   max-width: 100%;
-  font-size: clamp(1.2rem, 0.9rem + 0.6vw, 1.4375rem);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase;
   line-height: 1;
 }
@@ -109,7 +109,7 @@
   font-size: 14px;
   opacity: 0.5;
   mix-blend-mode: hard-light;
-  text-shadow: 0 0 1px var(--bg-color);
+
   z-index: 1;
   color: var(--accent-color);
   -webkit-text-stroke: 1px var(--stroke-color);
@@ -128,7 +128,7 @@
 .card__image {
   inline-size: 100%;
   display: block;
-  height: 696px;
+  max-height: 696px;
   object-fit: cover;
 }
 
@@ -178,7 +178,8 @@
 }
 
 .button__text,
-.dialog__button-text {
+.dialog__button-text,
+.button__icon {
   position: relative;
   z-index: 2;
   color: white;
@@ -236,22 +237,24 @@
   height: 21px;
   position: relative;
   z-index: 2;
+  color: white;
+  mix-blend-mode: difference;
 }
 
-.button:hover .button__icon {
-  filter: invert(1);
-  transition: filter 0.5s ease-in-out;
+.button__icon use {
+  fill: currentColor;
 }
 
 /* модал*/
 .dialog {
   padding: 0;
   max-width: 100%;
+  border: 2px solid var(--accent-color);
 }
 
 .dialog__content {
   background: var(--bg-color);
-  border: 2px solid var(--accent-color);
+
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -261,18 +264,19 @@
 }
 
 .dialog__header {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 15px;
-  justify-content: start;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .dialog__icon {
-  margin-top: 10px;
+  margin-bottom: 15px;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
   padding: 0;
+  transform-origin: top left;
+  transform: scale(1.8);
 }
 
 .dialog__title {
@@ -431,15 +435,8 @@
     transform: none;
   }
 
-  .hero__logo-html h1 {
-    font-size: clamp(3.0625rem, 1.5rem + 2.2vw, 4.0625rem);
-  }
-
-  .hero__logo-close-tag h2 {
-    font-size: clamp(0.875rem, 0.35rem + 1.5vw, 2.1875rem);
-  }
   .content {
-    padding-block: 100px;
+    padding-block-start: 100px;
     gap: 48px;
     margin-block-start: 0;
   }
@@ -481,15 +478,16 @@
   }
 
   .save-button {
-    padding: 18px;
+    padding: 17px;
     flex-direction: column;
-    gap: 7px;
+    gap: 8px;
   }
 
   .button__icon {
     width: 25px;
     height: 25px;
-    transform: scale(1.4);
+    transform: scale(1.1);
+    padding: 0;
   }
   .dialog {
     padding-inline: 17px;
@@ -498,16 +496,12 @@
   }
   .dialog__content {
     padding-inline: 40px;
-
-    max-width: auto;
-    height: 191px;
+    padding-block: 30px;
     font-size: 14px;
     line-height: 1.5;
   }
-
   .dialog__icon {
-    width: 40px;
-    height: 40px;
+    margin-bottom: 0;
   }
   .dialog__title {
     margin: 0;
@@ -519,9 +513,6 @@
 
   .dialog__button-text {
     font-size: 14px;
-  }
-  .dialog__header {
-    column-gap: 20px;
   }
 }
 /* фильтры для картинок */
