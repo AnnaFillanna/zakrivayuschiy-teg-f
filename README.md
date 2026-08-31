@@ -11,4 +11,4 @@ A responsive web project created as part of my Full-Stack Web Development studie
 
 ## Live Demo
 
-https://annafillanna.github.io/zakrivayuschiy-teg-f/
+https://annafillanna.github.io/closing-tag/
